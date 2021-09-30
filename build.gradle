@@ -34,10 +34,17 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            ideaModule "${project.name}.main"
             property 'fml.earlyprogresswindow', 'false'
             mods {
-                template {
+                enderpay {
                     source sourceSets.main
+                }
+                auctionhouse {
+                    source project(":AuctionHouse").sourceSets.main
+                }
+                bibliotheca {
+                    source project(":Bibliotheca").sourceSets.main
                 }
             }
         }
@@ -45,8 +52,14 @@ minecraft {
         server {
             workingDirectory project.file('run')
             mods {
-                template {
+                enderpay {
                     source sourceSets.main
+                }
+                auctionhouse {
+                    source project(":AuctionHouse").sourceSets.main
+                }
+                bibliotheca {
+                    source project(":Bibliotheca").sourceSets.main
                 }
             }
         }
@@ -54,8 +67,14 @@ minecraft {
         data {
             workingDirectory project.file('run')
             mods {
-                template {
+                enderpay {
                     source sourceSets.main
+                }
+                auctionhouse {
+                    source project(":AuctionHouse").sourceSets.main
+                }
+                bibliotheca {
+                    source project(":Bibliotheca").sourceSets.main
                 }
             }
         }
@@ -75,7 +94,10 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${MC_VERSION}-${FORGE_VERSION}"
-    implementation fg.deobf("curse.maven:bibliotheca-268210:${BIBLIOTHECA}")
+
+    implementation project(':AuctionHouse')
+    implementation project(':Bibliotheca')
+
     implementation fg.deobf("curse.maven:worldstripper-250603:${WORLD_STRIPPER}")
 }
 
@@ -105,9 +127,8 @@ curseforge {
         changelog = file('CHANGELOG.md')
         releaseType = "${RELEASE_TYPE}"
         addGameVersion 'Forge'
-        addGameVersion '1.16.5'
-        addGameVersion '1.16.4'
-        addGameVersion '1.16.3'
+        addGameVersion '1.17.1'
+        addGameVersion '1.17'
         mainArtifact(jar) {
             displayName = "${MODNAME}-${MC_VERSION}-${VERSION}.jar"
         }

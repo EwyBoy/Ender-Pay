@@ -4,22 +4,22 @@ license="MIT License"
 issueTrackerURL="https://github.com/EwyBoy/Template-Mod/issues"
 
 [[mods]]
-modId="template"
+modId="enderpay"
 version="${file.jarVersion}"
-displayName="Template"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/Mod-Name"
+displayName="Ender Pay"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/Ender-Pay"
 credits=""
 authors="Ewy"
 description=""
 
-[[dependencies.template]]
+[[dependencies.enderpay]]
 modId="forge"
 mandatory=true
 versionRange="[37,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.template]]
+[[dependencies.enderpay]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.17.1, 1.18)"
